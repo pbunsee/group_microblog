@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> <%= @title %> </title>
+  
+  <!-- CSS Reset -->
+  <link rel="stylesheet" type="text/css" href="style/cssreset.css">
+  
+  <!-- Main CSS -->
+  <link rel="stylesheet" type="text/css" href=  "style/main.css">
+  
+  <!-- Seperatly Linked Style Sheet -->
+  <link rel="stylesheet" type="text/css" href= <%= @stylesheet %>>
+ 
+</head>
+<body>
+
+    <nav class="nav">
+        
+    </nav>
+    
+    <%= yield %>
+   
+</body>
+</html>
+
+
+
+
+
+
