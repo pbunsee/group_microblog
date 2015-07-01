@@ -11,14 +11,13 @@ class Post < ActiveRecord::Base
   belongs_to :user
 end
 
-class Follow < ActiveRecord::Base
+#class Follow < ActiveRecord::Base
   # A user may have many followers
-  has_many :users
+  #has_many :users
 
   # A user may follow many other users
   # User.followers
-end
-
+#end
 
 #
 # User may be interested in many topics
