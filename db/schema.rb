@@ -13,6 +13,11 @@
 
 ActiveRecord::Schema.define(version: 20150702025457) do
 
+  create_table "posts", force: :cascade do |t|
+    t.integer "user_id"
+    t.string  "body"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "email"

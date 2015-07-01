@@ -6,6 +6,7 @@ require 'rack-flash'
 
 set :database, "sqlite3:nottwitter.sqlite3"
 
+
 enable :sessions
 
 use Rack::Flash, sweep: true
@@ -22,11 +23,14 @@ get '/sign-out' do
   flash[:notice] = "#{@user.username} signed out"
   redirect '/'
 end
+
+
+post '/post' do
+  @post = Post.create({body: params[:post]})
+  erb :post
   
-get '/sign-up' do
-  erb :sign_up
 end
-  
+
 post '/sign-up' do
   confirmation = params[:confirm_password]
   if confirmation = params[:user][:password]

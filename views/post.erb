@@ -1,0 +1,9 @@
+<form method="POST" action="/post">
+  <input type="text" placeholder="Post" name="post">
+  <input type="submit"></input>
+</form>
+<% Post.last(10).each do |post| %>
+  <%= post.body %>
+
+  <br>  
+<% end %>

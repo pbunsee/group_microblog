@@ -4,10 +4,10 @@
   <title> <%= @title %> </title>
   
   <!-- CSS Reset -->
-  <link rel="stylesheet" type="text/css" href="style/cssreset.css">
+  <link rel="stylesheet" type="text/css" href="styles/cssreset.css">
   
   <!-- Main CSS -->
-  <link rel="stylesheet" type="text/css" href=  "style/main.css">
+  <link rel="stylesheet" type="text/css" href=  "styles/main.css">
   
   <!-- Seperatly Linked Style Sheet -->
   <link rel="stylesheet" type="text/css" href= <%= @stylesheet %>>
@@ -15,11 +15,34 @@
 </head>
 <body>
 
-    <nav class="nav">
+    <nav class="top_nav">
+      <ul>
+        <li class="outer"><a href="#">Profile</a></li>
+          <ul id="innerdrop">
+              <li class="inner"><a href="#">View</a></li>
+              <li class="inner"><a href="#">Edit</a></li>
+              <li class="inner"><a href="#">Delete</a></li>
+          </ul>
+          <li class="outer"><a href="#">Sign In</a></li>
+          <li class="outer"><a href="#">Sign Up</a></li>
+
+      </ul>
         
     </nav>
+    <div class="left_nav">
+      <li class="left"><a href="#">Trending Now</a></li>
+      <li class="left"><a href="#">Search</a></li>
+      <li class="left"><a href="#">Followers</a></li>
+      <li class="left"><a href="#">Following</a></li>
+      <li class="left"><a href="#">Posts</a></li>
+      <li class="left"><a href="#">Favorites</a></li>
+    </div>
     
+    <p>
     <%= yield %>
+    </p>
+
+    
    
 </body>
 </html>
