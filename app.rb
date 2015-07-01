@@ -18,5 +18,30 @@ post '/sign-up' do
     "Your password & confirmation password did not match. Try again."
   end
 end
+ 
+post '/edit-profile' do
+  if current_user
+    erb :edit_profile
+  else
+    redirect '/sign-in'
+  end
+end
+
+post '/view-profile' do
+  if current_user
+    erb :view_profile
+  else
+    redirect '/sign-in'
+  end
+end
+
+post '/delete-profile' do
+  if current_user
+    erb :delete_profile
+  else
+    redirect '/sign-in'
+  end
+end
+
 
 
