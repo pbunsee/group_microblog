@@ -19,9 +19,25 @@ post '/sign-up' do
   end
 end
  
+get '/edit-profile' do
+  if current_user
+    erb :edit_profile
+  else
+    redirect '/sign-in'
+  end
+end
+
 post '/edit-profile' do
   if current_user
     erb :edit_profile
+  else
+    redirect '/sign-in'
+  end
+end
+
+get '/view-profile' do
+  if current_user
+    erb :view_profile
   else
     redirect '/sign-in'
   end
