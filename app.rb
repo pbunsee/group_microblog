@@ -30,6 +30,10 @@ get '/sign-up' do
 
 end
 
+get '/post' do
+  @stylesheet = 'styles/post.css'
+  erb :post
+end
 
 post '/post' do
   @post = Post.create({body: params[:post]})
@@ -42,6 +46,8 @@ post '/sign-up' do
   confirmation = params[:confirm_password]
   if confirmation = params[:user][:password]
     @user = User.create(params[:user])
+    params[:profile].merge!(user_id: @user.id)
+    Profile.create(params[:profile])
     "SIGNED UP #{@user.username}"
   else
     "Your password & confirmation password did not match. Try again."

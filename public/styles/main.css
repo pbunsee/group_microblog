@@ -19,6 +19,7 @@ nav {
   background-color: #061328; 
 
 
+
   /*padding-right: px;*/
 }
 
@@ -49,18 +50,19 @@ nav ul li {
 }
 nav ul li:hover {
   background-color: #061328;
-  text-decoration: underline;
+  /*text-decoration: underline;*/
 }
-nav ul li:hover a {
-  /*color: #fff;*/
 
-}
 
 nav ul li a {
   display: block; 
-  padding: 10px 30px;
+  margin: 10px 30px;
   color: #B4BDCC;
   text-decoration: none;
+  border-left: 1px solid transparent;
+  border-right: 1px solid transparent;
+  padding-left: 4px;
+  padding-right: 4px;
 }
   
 
@@ -69,7 +71,8 @@ background-color: #061328;
 border-radius: 0px; 
 padding: 0;
 position: absolute; 
-top: 100%;
+left: 105px;
+top: 40px;
 }
 nav ul ul li {
   float: none; 
@@ -78,6 +81,7 @@ nav ul ul li {
 nav ul ul li a {
   padding: 15px 40px;
   /*color: #fff;*/
+  margin: 0;
 } 
 nav ul ul li a:hover {
   background: #4b545f;
@@ -110,6 +114,18 @@ top:0;
   height: 100%;
   width: 90px;
   border-radius: 5px;
+  /*border-left: 1px transparent #B4BDCC;
+  border-right: 1px transparent #B4BDCC;
+  padding-left: 4px;
+  padding-right: 4px;*/
+}
+
+.left_nav a{
+  border-left: 1px solid transparent;
+  border-right: 1px solid transparent;
+  padding-left: 4px;
+  padding-right: 4px;
+
 }
 
 .left {
@@ -121,11 +137,11 @@ top:0;
   color: #B4BDCC;
   font-family: 'Josefin Sans', sans-serif;
 }
-.left_nav a:hover {
+a:hover {
   border-left: 1px solid #B4BDCC;
   border-right: 1px solid #B4BDCC;
-  padding-left: 4px;
-  padding-right: 4px;
+  /*padding-left: 4px;
+  padding-right: 4px;*/
 }
 
 /* Left Navigation Bar - End */

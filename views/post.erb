@@ -1,5 +1,5 @@
 <form method="POST" action="/post" class="post">
-  <input type="text" placeholder="Post" name="post">
+  <textarea row="4" column="10" type="text" placeholder="Post" name="post"></textarea>
   <input type="submit"></input>
 </form>
 <% Post.last(10).each do |post| %>
