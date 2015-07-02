@@ -16,6 +16,7 @@ get '/' do
   erb :index
 end
 
+
 get '/sign-out' do
   user_id = session[:user_id]
   @user = User.find(user_id)
@@ -24,9 +25,15 @@ get '/sign-out' do
   redirect '/'
 end
 
+get '/sign-up' do
+  erb :sign_up
+
+end
+
 
 post '/post' do
   @post = Post.create({body: params[:post]})
+  @stylesheet = 'styles/post.css'
   erb :post
   
 end

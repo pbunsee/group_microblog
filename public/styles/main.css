@@ -1,52 +1,101 @@
 /* Top Navigation Bar - Start */
-.top_nav {
-  float: right;
+
+body {
+  background-color: white;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
-nav ul{
-  list-style: none;
+#hello {
+  width: 100%;
 }
-.inner {
+
+nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding-left: 150px;
+  padding-top: 5px;
+  background-color: #061328; 
+
+
+  /*padding-right: px;*/
+}
+
+nav ul ul {
   display: none;
-  border: 1px solid black;
-  margin: 0 auto;
 }
 
-nav :hover .inner {
-  color: black;
-  display: block;
+  nav ul li:hover > ul {
+    display: block;
+  }
+
+
+nav ul {
+  background-color: #061328; 
+  list-style: none;
+  position: relative;
+  display: inline-table;
+  margin: 0;
 }
+  nav ul:after {
+    content: ""; 
+    clear: both; 
+    display: block;
+  }
+
 nav ul li {
   float: left;
-  padding: 0 20px;
 }
+nav ul li:hover {
+  background-color: #061328;
+  text-decoration: underline;
+}
+nav ul li:hover a {
+  /*color: #fff;*/
+
+}
+
 nav ul li a {
-  display: block;
+  display: block; 
+  padding: 10px 30px;
+  color: #B4BDCC;
+  text-decoration: none;
+}
+  
+
+nav ul ul {
+background-color: #061328;
+border-radius: 0px; 
+padding: 0;
+position: absolute; 
+top: 100%;
 }
 nav ul ul li {
-  float: none;
+  float: none; 
   position: relative;
 }
-nav ul ul {
+nav ul ul li a {
+  padding: 15px 40px;
+  /*color: #fff;*/
+} 
+nav ul ul li a:hover {
+  background: #4b545f;
+}
+
+nav ul ul ul {
+position: absolute; 
+left: 100%; 
+top:0;
+}
+/*#hello {
+  background-color: #061328;
+  width: 100%;
+  height: 40px;
   position: absolute;
-  /*top: 100%;*/
-}
-nav ul li a{
-  padding: 10px;
-  /*left: 100%;*/
-}
-nav {
-  border: 10px solid blue;
-}
-nav ul:after {
-  content: ""; 
-  clear: both; 
-  display: block;
-}
-#innerdrop {
-  margin-top: 35px;
-  text-align: center;
-}
+  top: 0;
+}*/
+ 
 /* Top Navigation Bar - End */
 
 /* Left Navigation Bar - Start */
@@ -55,14 +104,31 @@ nav ul:after {
   padding: 10px;
   list-style: none;
   border: 1px solid black;
-  float: left;
+  background: #061328;
+  position: absolute;
+  color: #B4BDCC;
+  height: 100%;
+  width: 90px;
+  border-radius: 5px;
 }
+
 .left {
-  margin-top: 20px;
+  margin-top: 40px;
   padding: 10px;
 }
+.left a {
+  text-decoration: none;
+  color: #B4BDCC;
+  font-family: 'Josefin Sans', sans-serif;
+}
+.left_nav a:hover {
+  border-left: 1px solid #B4BDCC;
+  border-right: 1px solid #B4BDCC;
+  padding-left: 4px;
+  padding-right: 4px;
+}
 
-
+/* Left Navigation Bar - End */
 
 
 

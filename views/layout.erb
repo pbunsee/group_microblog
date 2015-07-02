@@ -2,7 +2,6 @@
 <html>
 <head>
   <title> <%= @title %> </title>
-  
   <!-- CSS Reset -->
   <link rel="stylesheet" type="text/css" href="styles/cssreset.css">
   
@@ -11,32 +10,40 @@
   
   <!-- Seperatly Linked Style Sheet -->
   <link rel="stylesheet" type="text/css" href= <%= @stylesheet %>>
+
+  <!-- Google Fonts -->
+  <link href='http://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
  
 </head>
 <body>
-
-    <nav class="top_nav">
+<div id="hello">
+  <nav>
       <ul>
-        <li class="outer"><a href="#">Profile</a></li>
-          <ul id="innerdrop">
-              <li class="inner"><a href="#">View</a></li>
-              <li class="inner"><a href="#">Edit</a></li>
-              <li class="inner"><a href="#">Delete</a></li>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Profile</a>
+          <ul>
+            <li><a href="#">View</a></li>
+            <li><a href="#">Edit</a></li>
+            <li><a href="#">Delete</a>
+            </li>
           </ul>
-          <li class="outer"><a href="#">Sign In</a></li>
-          <li class="outer"><a href="#">Sign Up</a></li>
+        </li>
+        <li><a href="#">Sign In</a></li>
+        <li><a href="#">Sign Up</a></li>
+      </ul> 
+  </nav>
+</div> 
 
-      </ul>
-        
-    </nav>
-    <div class="left_nav">
-      <li class="left"><a href="#">Trending Now</a></li>
-      <li class="left"><a href="#">Search</a></li>
-      <li class="left"><a href="#">Followers</a></li>
-      <li class="left"><a href="#">Following</a></li>
-      <li class="left"><a href="#">Posts</a></li>
-      <li class="left"><a href="#">Favorites</a></li>
-    </div>
+    <div id="in">
+      <div class="left_nav">
+        <li class="left"><a href="#">Trending</a></li>
+        <li class="left"><a href="#">Search</a></li>
+        <li class="left"><a href="#">Followers</a></li>
+        <li class="left"><a href="#">Following</a></li>
+        <li class="left"><a href="/post">Posts</a></li>
+        <li class="left"><a href="#">Favorites</a></li>
+      </div>
+  </div>
     
     <p>
     <%= yield %>
