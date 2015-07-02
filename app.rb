@@ -1,6 +1,8 @@
 require 'sinatra'
 require 'sinatra/activerecord'
 require './models'
+require 'bundler/setup'   
+require 'rack-flash'
 
 set :database, "sqlite3:nottwitter.sqlite3"
 
@@ -8,11 +10,23 @@ enable :sessions
 
 use Rack::Flash, sweep: true
 
+# Go to Gwen's landing page
+get '/' do
+  erb :index
+end
+
+get '/sign-out' do
+  user_id = session[:user_id]
+  @user = User.find(user_id)
+  session.clear
+  flash[:notice] = "#{@user.username} signed out"
+  redirect '/'
+end
+  
 get '/sign-up' do
   erb :sign_up
 end
   
-
 post '/sign-up' do
   confirmation = params[:confirm_password]
   if confirmation = params[:user][:password]
@@ -23,19 +37,35 @@ post '/sign-up' do
   end
 end
 
-post "/sign-in" do
+get '/sign-in' do
+  erb :sign_in
+end
+
+post '/sign-in' do
   username = params[:user][:username]
   password = params[:user][:password]
 
   @user = User.where(username: username).first
 
-  if @user.password == password
-    session[:user_id] = @user.id
-    flash[:notice] = "Welcome #{@user.username}!"
-    redirect '/'
+  if @user == 'undefined' || @user.nil?
+    puts "@user is undefined, nil or empty for username: #{username} password: #{password}"
+    flash[:notice] = "User not found. undefined, nil or empty for username: #{username} password: #{password}"
+    redirect '/sign-up'
   else
-    flash[:notice] = "Incorrect username or password. Please try again."
-    redirect '/'
+    if @user.password == password
+      session[:user_id] = @user.id
+      flash[:notice] = "Welcome #{@user.username}!"
+      redirect '/'
+    else
+      flash[:notice] = "Incorrect username or password. Please try again."
+      redirect '/'
+    end
+    puts "username: #{username}"
+    puts "username: #{username}"
+    puts "password: #{password}"
+    puts "@user: #{@user}"
+    puts "@user.username: #{@user.username}"
+    puts "@user.password: #{@user.password}"
   end
 end
  
@@ -57,7 +87,16 @@ end
 
 get '/view-profile' do
   if current_user
-    erb :view_profile
+    user_id = session[:user_id]
+    @user = User.find(user_id)
+    if @user.nil? || @user == 'undefined'
+      puts "cannot find the profile for #{user_id}"
+      flash[:notice] = "Profile not found."
+    else
+      puts "view profile of user:  #{@user.email}  #{@user.username}"
+      puts "this is the userID : #{user_id}"
+      erb :view_profile
+    end
   else
     redirect '/sign-in'
   end
