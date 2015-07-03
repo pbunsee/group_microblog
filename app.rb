@@ -14,6 +14,7 @@ get "/" do
     erb :index
   else
     redirect '/sign-in'
+    puts "redirect to sign-in 1"
   end
 end
 
@@ -56,6 +57,7 @@ end
 
 get '/sign-in' do
   erb :sign_in
+  puts "erb to sign-in 1"
 end
 
 post '/sign-in' do
@@ -91,6 +93,7 @@ get '/edit-profile' do
     erb :edit_profile
   else
     redirect '/sign-in'
+    puts "redirect to sign-in 2"
   end
 end
 
@@ -99,6 +102,7 @@ post '/edit-profile' do
     erb :edit_profile
   else
     redirect '/sign-in'
+    puts "redirect to sign-in 3"
   end
 end
 
@@ -116,6 +120,7 @@ get '/view-profile' do
     end
   else
     redirect '/sign-in'
+    puts "redirect to sign-in 4"
   end
 end
 
@@ -124,6 +129,7 @@ post '/view-profile' do
     erb :view_profile
   else
     redirect '/sign-in'
+    puts "redirect to sign-in 5"
   end
 end
 
@@ -132,6 +138,7 @@ get '/delete-profile' do
     erb :delete_profile
   else
     redirect '/sign-in'
+    puts "redirect to sign-in 6"
   end
 end
 
@@ -140,6 +147,7 @@ post '/delete-profile' do
     erb :delete_profile
   else
     redirect '/sign-in'
+    puts "redirect to sign-in 7"
   end
 end
 
