@@ -1,6 +1,8 @@
 <form id="view_profile" method="GET" action="/view-profile">
-   <input type="text" name="[user]firstname" value="<%= @fname %>"><br>
-   <input type="text" name="[user]lastname" value="<%= @lname %>"><br>
+   <input type="text" name="[profile]firstname" value="<%= @fname %>"><br>
+   <input type="text" name="[profile]lastname" value="<%= @lname %>"><br>
    <input type="text" name="[user]email" value="<%= @email %>"><br>
+   <input type="text" name="[profile]city" value="<%= @city %>"><br>
+   <input type="text" name="[profile]dob" value="<%= @dob %>"><br>
    <input type="button" name="editprofile" value="Edit Profile"><br>
 </form>
