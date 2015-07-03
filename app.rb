@@ -4,18 +4,13 @@ require './models'
 require 'bundler/setup'   
 require 'rack-flash'
 
-set :database, "sqlite3:nottwitter.sqlite3"
-
-
+configure(:development){set :database, "sqlite3:nottwitter.sqlite3"}
 enable :sessions
-
 use Rack::Flash, sweep: true
 
-# Go to Gwen's landing page
 get '/' do
   erb :index
 end
-
 
 get '/sign-out' do
   user_id = session[:user_id]
@@ -27,7 +22,6 @@ end
 
 get '/sign-up' do
   erb :sign_up
-
 end
 
 get '/post' do
@@ -39,7 +33,6 @@ post '/post' do
   @post = Post.create({body: params[:post]})
   @stylesheet = 'styles/post.css'
   erb :post
-  
 end
 
 post '/sign-up' do

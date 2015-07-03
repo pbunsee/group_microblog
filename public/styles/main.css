@@ -5,6 +5,12 @@ body {
   font-family: 'Josefin Sans', sans-serif;
 }
 
+form {
+  position: relative;
+  left: 200px;
+  top: 200px; 
+}
+
 #hello {
   width: 100%;
 }
@@ -18,8 +24,6 @@ nav {
   padding-top: 5px;
   background-color: #061328; 
   height: 50px;
-
-
 
   /*padding-right: px;*/
 }
@@ -147,11 +151,4 @@ a:hover {
 }
 
 /* Left Navigation Bar - End */
-
-
-
-
-
-
-
 

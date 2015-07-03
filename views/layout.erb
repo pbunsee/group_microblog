@@ -13,8 +13,8 @@
 
   <!-- Google Fonts -->
   <link href='http://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
- 
 </head>
+
 <body>
 <div id="hello">
   <nav>
@@ -22,14 +22,17 @@
         <li><a href="#">Home</a></li>
         <li><a href="#">Profile</a>
           <ul>
-            <li><a href="#">View</a></li>
-            <li><a href="#">Edit</a></li>
-            <li><a href="#">Delete</a>
+            <li><a href="/view-profile">View</a></li>
+            <li><a href="/edit-profile">Edit</a></li>
+            <li><a href="/delete-profile">Delete</a>
             </li>
           </ul>
         </li>
-        <li><a href="#">Sign In</a></li>
-        <li><a href="#">Sign Up</a></li>
+        <li><a href="/sign-in">Sign In</a></li>
+        <li><a href="/sign-up">Sign Up</a></li>
+        <% if current_user %>
+          <li><a href="/sign-out">Sign Out</a></li>
+        <% end %>
       </ul> 
   </nav>
 </div> 
@@ -45,12 +48,16 @@
       </div>
   </div> -->
     
-    <p>
+  <p>
     <%= yield %>
-    </p>
-
     
-   
+    <% if flash[:notice] %>
+      <div class="notice" style="background:yellow">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+    <%= flash[:warning] if flash[:warning] %>
+  </p>
 </body>
 </html>
 
