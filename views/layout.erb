@@ -1,10 +1,62 @@
+<!DOCTYPE html>
 <html>
 <head>
-  <title>Nottwitter</title>
-</head>
-<body>
-<%= flash[:notice] if flash[:notice] %>
-  <%= yield %>
+  <title> <%= @title %> </title>
+  <!-- CSS Reset -->
+  <link rel="stylesheet" type="text/css" href="styles/cssreset.css">
+  
+  <!-- Main CSS -->
+  <link rel="stylesheet" type="text/css" href=  "styles/main.css">
+  
+  <!-- Seperatly Linked Style Sheet -->
+  <link rel="stylesheet" type="text/css" href= <%= @stylesheet %>>
 
+  <!-- Google Fonts -->
+  <link href='http://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+<div id="hello">
+  <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Profile</a>
+          <ul>
+            <li><a href="/view-profile">View</a></li>
+            <li><a href="/edit-profile">Edit</a></li>
+            <li><a href="/delete-profile">Delete</a>
+            </li>
+          </ul>
+        </li>
+        <li><a href="/sign-in">Sign In</a></li>
+        <li><a href="/sign-up">Sign Up</a></li>
+        <% if current_user %>
+          <li><a href="/sign-out">Sign Out</a></li>
+        <% end %>
+      </ul> 
+  </nav>
+</div> 
+
+    <!-- <div id="in">
+      <div class="left_nav">
+        <li class="left"><a href="#">Trending</a></li>
+        <li class="left"><a href="#">Search</a></li>
+        <li class="left"><a href="#">Followers</a></li>
+        <li class="left"><a href="#">Following</a></li>
+        <li class="left"><a href="/post">Posts</a></li>
+        <li class="left"><a href="#">Favorites</a></li>
+      </div>
+  </div> -->
+    
+  <p>
+    <%= yield %>
+    
+    <% if flash[:notice] %>
+      <div class="notice" style="background:yellow">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+    <%= flash[:warning] if flash[:warning] %>
+  </p>
 </body>
 </html>

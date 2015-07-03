@@ -1,8 +1,17 @@
-<div>
-   Welcome to the sign in page!
-   <form method="POST" action="/sign-in">
-     <input type="text" name="[user]username" placeholder="Username">
-     <input type="password" name="[user]password" placeholder="Password">
-     <input type="submit">
-   </form>
-</div> 
+<form method="POST" action="/sign-in">
+  Username <input type="text" name="[user]username" placeholder="Username">
+  Password <input type="password" name="[user]password" placeholder="Password">
+  <input type="submit">
+</form>
+
+<% if flash[:notice] %>
+  <div class="flash_notice">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
+<% if flash[:alert] %>
+  <div class="flash_alert">
+    <%= flash[:alert] %>
+  </div>
+<% end %>

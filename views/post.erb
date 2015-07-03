@@ -1,0 +1,10 @@
+<form method="POST" action="/post" class="post">
+  <textarea row="4" column="10" type="text" placeholder="Post" name="post"></textarea>
+  <input type="submit"></input>
+</form>
+<% Post.last(10).reverse.each do |post| %>
+  <%= post.body %>
+
+  <br>  
+<% end %>
+
