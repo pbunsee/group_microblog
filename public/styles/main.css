@@ -11,6 +11,12 @@ form {
   top: 200px; 
 }
 
+.flash_msg {
+  position: relative;
+  left: 200px;
+  top: 200px; 
+}
+
 #hello {
   width: 100%;
 }
