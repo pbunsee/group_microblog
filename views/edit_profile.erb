@@ -1,9 +1,14 @@
 <form id="edit_profile" method="POST" action="/edit-profile">
-   <input type="text" name="[profile]fname" placeholder="firstname"><br>
-   <input type="text" name="[profile]lname" placeholder="lastname"><br>
-   <input type="text" name="[user]email" placeholder="Email"><br>
-   <input type="text" name="[profile]city" placeholder="City"><br>
-   <input type="text" name="[profile]dob" placeholder="Birthday"><br>
-   <input type="submit">
+   <label for="[profile]fname">First Name</label>
+   <input type="text" name="[profile]fname" value="<%= @profile.fname %>" placeholder="First name"><br>
+   <label for="[profile]lname">Last Name</label>
+   <input type="text" name="[profile]lname" value="<%= @profile.lname %>" placeholder="Last name"><br>
+   <label for="[user]email">Email</label>
+   <input type="text" name="[user]email" value="<%= @user.email %>" placeholder="Email"><br>
+   <label for="[profile]city">City</label>
+   <input type="text" name="[profile]city" value="<%= @profile.city %>" placeholder="City"><br>
+   <label for="[profile]dob">Date of Birth</label>
+   <input type="text" name="[profile]dob" value="<%= @profile.dob %>" placeholder="Date of Birth"><br>
+   <input type="submit" value="Edit Profile"><br>
 </form>
 

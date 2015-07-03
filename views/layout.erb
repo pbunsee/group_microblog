@@ -28,8 +28,10 @@
             </li>
           </ul>
         </li>
-        <li><a href="/sign-in">Sign In</a></li>
-        <li><a href="/sign-up">Sign Up</a></li>
+        <% if !current_user %>
+          <li><a href="/sign-in">Sign In</a></li>
+          <li><a href="/sign-up">Sign Up</a></li>
+        <% end %>
         <% if current_user %>
           <li><a href="/sign-out">Sign Out</a></li>
         <% end %>

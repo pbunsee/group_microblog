@@ -1,8 +1,13 @@
 <form id="view_profile" method="GET" action="/view-profile">
-   <input type="text" name="[profile]firstname" value="<%= @fname %>"><br>
-   <input type="text" name="[profile]lastname" value="<%= @lname %>"><br>
-   <input type="text" name="[user]email" value="<%= @email %>"><br>
-   <input type="text" name="[profile]city" value="<%= @city %>"><br>
-   <input type="text" name="[profile]dob" value="<%= @dob %>"><br>
-   <input type="button" name="editprofile" value="Edit Profile"><br>
+   <label for="[profile]fname">First Name</label>
+   <input type="text" name="[profile]firstname" value="<%= @profile.fname %>"><br>
+   <label for="[profile]lname">Last Name</label>
+   <input type="text" name="[profile]lastname" value="<%= @profile.lname %>"><br>
+   <label for="[user]email">Email</label>
+   <input type="text" name="[user]email" value="<%= @user.email %>"><br>
+   <label for="[profile]city">City</label>
+   <input type="text" name="[profile]city" value="<%= @profile.city %>"><br>
+   <label for="[profile]dob">Date of Birth</label>
+   <input type="text" name="[profile]dob" value="<%= @profile.dob %>"><br>
+   <input type="submit" value="Edit Profile"><br>
 </form>

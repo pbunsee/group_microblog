@@ -76,10 +76,10 @@ post '/sign-in' do
       flash[:notice] = "Welcome #{@user.username}!"
       redirect '/'
     else
+      puts "Password incorrect."
       flash[:notice] = "Incorrect username or password. Please try again."
-      redirect '/'
+      redirect '/sign-in'
     end
-    puts "username: #{username}"
     puts "username: #{username}"
     puts "password: #{password}"
     puts "@user: #{@user}"
@@ -90,6 +90,9 @@ end
  
 get '/edit-profile' do
   if current_user
+    user_id = session[:user_id]
+    @user = User.find(user_id)
+    @profile = Profile.where(user_id: user_id).first
     erb :edit_profile
   else
     puts "redirect to sign-in 2"
@@ -107,15 +110,18 @@ post '/edit-profile' do
 end
 
 get '/view-profile' do
+  puts "session user_id #{session[:user_id]}"
+  puts current_user
   if current_user
     user_id = session[:user_id]
     @user = User.find(user_id)
+    @profile = Profile.where(user_id: user_id).first
     if @user.nil? || @user == 'undefined'
       puts "cannot find the profile for #{user_id}"
       flash[:notice] = "Profile not found."
     else
-      puts "view profile of user:  #{@user.email}  #{@user.username}"
-      puts "this is the userID : #{user_id}"
+      puts "view profile of user:  #{@profile}"
+      puts "this is the userID : #{user_id} for #{@user}"
       erb :view_profile
     end
   else
@@ -152,8 +158,9 @@ post '/delete-profile' do
 end
 
 def current_user
+    puts "session user_id #{session[:user_id]}"
   if session[:user_id]
-    User.find session[:user_id]
+    User.find(session[:user_id])
   end
 end
 
