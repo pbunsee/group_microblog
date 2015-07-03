@@ -1,16 +1,20 @@
-<form method="POST" action="/post" class="post">
-   <label for="post"></label>
-   <textarea rows="4" cols="40" type="text" placeholder="Post" name="post"></textarea>
-   <label for="submit"></label>
-   <input type="submit"></input>
-</form>
- 
-<div id="past_10_posts">
-  <% Post.last(10).reverse.each do |post| %>
-    <div id="each_post">
-      <%= post.body %>  
-    </div>
-    <br>
-  <% end %>
+<div>
+  <form method="POST" action="/post" class="post">
+     <label for="post"></label>
+     <textarea rows="4" cols="40" type="text" placeholder="Post" name="post" maxlength="150"></textarea>
+     <label for="submit">                    </label>
+     <input class="user_button" type="submit"></input>
+  </form>
+   
+  <div id="past_10_posts">
+    <% if @post.size > 0 %>
+      <% @post.last(10).reverse.each do |post| %>
+        <div class="each_post">
+          <%= post.body %>  
+        </div>
+        <br>
+      <% end %>
+    <% end %>
+  </div>
 </div>
 

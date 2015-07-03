@@ -8,37 +8,37 @@
   <!-- Main CSS -->
   <link rel="stylesheet" type="text/css" href=  "styles/main.css">
   
-  <!-- Seperatly Linked Style Sheet -->
+  <!-- Separately Linked Style Sheet -->
   <link rel="stylesheet" type="text/css" href= <%= @stylesheet %>>
 
   <!-- Google Fonts -->
   <link href='http://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
 </head>
 
-<body>
-<div id="hello">
-  <nav>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Profile</a>
+  <body>
+    <div id="hello">
+      <nav>
           <ul>
-            <li><a href="/view-profile">View</a></li>
-            <li><a href="/edit-profile">Edit</a></li>
-            <li><a href="/delete-profile">Delete</a>
+            <li><a href="/">Home</a></li>
+            <li><a href="#">Profile</a>
+              <ul>
+                <li><a href="/view-profile">View</a></li>
+                <li><a href="/edit-profile">Edit</a></li>
+                <li><a href="/delete-profile">Delete</a>
+                </li>
+              </ul>
             </li>
-          </ul>
-        </li>
-        <% if !current_user %>
-          <li><a href="/sign-in">Sign In</a></li>
-          <li><a href="/sign-up">Sign Up</a></li>
-        <% end %>
-        <% if current_user %>
-          <li><a href="/sign-out">Sign Out</a></li>
-        <% end %>
-      </ul> 
-  </nav>
-</div> 
-
+            <% if !current_user %>
+              <li><a href="/sign-in">Sign In</a></li>
+              <li><a href="/sign-up">Sign Up</a></li>
+            <% end %>
+            <% if current_user %>
+              <li><a href="/sign-out">Sign Out</a></li>
+            <% end %>
+          </ul> 
+      </nav>
+    </div> 
+  
     <!-- <div id="in">
       <div class="left_nav">
         <li class="left"><a href="#">Trending</a></li>
@@ -48,20 +48,23 @@
         <li class="left"><a href="/post">Posts</a></li>
         <li class="left"><a href="#">Favorites</a></li>
       </div>
-  </div> -->
-    
-  <p>
-    <%= yield %>
-    
-    <div class="flash_msg">
-      <% if flash[:notice] %>
-        <div class="notice" style="background:yellow">
-          <%= flash[:notice] %>
+    </div> -->
+      
+    <div id="page_content">
+      <p>
+        <%= yield %>
+      
+        <div class="flash_msg">
+          <% if flash[:notice] %>
+            <div class="notice" style="background:yellow">
+              <%= flash[:notice] %>
+            </div>
+          <% end %>
+          <%= flash[:warning] if flash[:warning] %>
         </div>
-      <% end %>
-      <%= flash[:warning] if flash[:warning] %>
+  
+      </p>
     </div>
-
-  </p>
-</body>
+  </body>
 </html>
+

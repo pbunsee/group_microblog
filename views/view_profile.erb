@@ -1,13 +1,13 @@
 <form id="view_profile" method="GET" action="/view-profile">
    <label for="[profile]fname">First Name</label>
-   <input type="text" name="[profile]firstname" value="<%= @profile.fname %>"><br>
+   <input class="form_input" type="text" name="[profile]firstname" value="<%= @profile.fname %>" readonly><br>
    <label for="[profile]lname">Last Name</label>
-   <input type="text" name="[profile]lastname" value="<%= @profile.lname %>"><br>
+   <input class="form_input" type="text" name="[profile]lastname" value="<%= @profile.lname %>" readonly><br>
    <label for="[user]email">Email</label>
-   <input type="text" name="[user]email" value="<%= @user.email %>"><br>
+   <input class="form_input" type="text" name="[user]email" value="<%= @user.email %>" readonly><br>
    <label for="[profile]city">City</label>
-   <input type="text" name="[profile]city" value="<%= @profile.city %>"><br>
+   <input class="form_input" type="text" name="[profile]city" value="<%= @profile.city %>" readonly><br>
    <label for="[profile]dob">Date of Birth</label>
-   <input type="text" name="[profile]dob" value="<%= @profile.dob %>"><br>
-   <input type="submit" value="Edit Profile"><br>
+   <input class="form_input" type="text" name="[profile]dob" value="<%= @profile.dob %>" readonly><br>
+   <input class="user_button" type="submit" value="Edit Profile" onclick="gotoRoute('/edit-profile')"><br>
 </form>

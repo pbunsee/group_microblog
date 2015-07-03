@@ -1,24 +1,49 @@
-/* Top Navigation Bar - Start */
 
 body {
-  background-color: white;
+  background-color: rgb(245, 250, 255);
   font-family: 'Josefin Sans', sans-serif;
+}
+ 
+#page_content {
+  display: block;
+  width: 100%;
+  height: 100%;
+  left: 20px;
+  top: 20px; 
+  z-index: 10;
+}
+
+p {
+  background-color: rgb(245, 250, 255);
 }
 
 form {
   position: relative;
   left: 200px;
-  top: 200px; 
-  background-color: #f3f3f3;
+  top: 100px; 
   border: solid 1px #a1a1a1;
   padding: 10px;
-  width: 300px;
+  width: 400px;
+  background-color: rgb(245, 250, 255);
 }
 
-form label, form input {
+form label {
   display: block;
   width: 120px;
   float: left;
+  margin-bottom: 10px;
+}
+
+.form_input {
+  display: block;
+  width: 250px;
+  float: left;
+  margin-bottom: 10px;
+}
+
+.user_button {
+  float: right;
+  width: auto;
   margin-bottom: 10px;
 }
  
@@ -27,15 +52,33 @@ form label {
   padding-right: 20px;
 }
 
+form button {
+  display: inline-block;
+  float: right;
+  cursor: pointer;
+  margin: 0;
+  padding: 10px 20px;
+  border: 1px solid #032d3d;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  color: rgba(10,9,9,0.9);
+  text-indent: 1px;
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  letter-spacing: 1px;
+  word-spacing: 4px;
+  background: #ecf0f1;
+  -webkit-box-shadow: 3px 5px 5px 1px rgba(0,0,0,0.3) ;
+  box-shadow: 3px 5px 5px 1px rgba(0,0,0,0.3) ;
+  text-shadow: 0 0 0 rgba(5,4,4,0.25) ;
+}
+
 br {
   clear: left;
 }
 
-button {
-  float: right;
-}
-
 .flash_msg {
+  display: none;
   position: relative;
   left: 20px;
   top: 200px; 
@@ -45,8 +88,9 @@ button {
   width: 100%;
 }
 
+/* Top Navigation Bar - Start */
 nav {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -54,6 +98,7 @@ nav {
   padding-top: 5px;
   background-color: #061328; 
   height: 50px;
+  z-index: 1;
 
   /*padding-right: px;*/
 }
@@ -89,7 +134,6 @@ nav ul li:hover {
   /*text-decoration: underline;*/
 }
 
-
 nav ul li a {
   display: block; 
   margin: 10px 30px;
@@ -101,7 +145,6 @@ nav ul li a {
   padding-right: 4px;
 }
   
-
 nav ul ul {
 background-color: #061328;
 border-radius: 0px; 
@@ -168,11 +211,13 @@ top:0;
   margin-top: 40px;
   padding: 10px;
 }
+
 .left a {
   text-decoration: none;
   color: #B4BDCC;
   font-family: 'Josefin Sans', sans-serif;
 }
+
 a:hover {
   border-left: 1px solid #B4BDCC;
   border-right: 1px solid #B4BDCC;
