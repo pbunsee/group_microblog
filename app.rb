@@ -56,7 +56,6 @@ post '/sign-up' do
 end
 
 get '/sign-in' do
-  puts "erb to sign-in 1"
   erb :sign_in
 end
 
@@ -74,7 +73,7 @@ post '/sign-in' do
     if @user.password == password
       session[:user_id] = @user.id
       flash[:notice] = "Welcome #{@user.username}!"
-      redirect '/'
+      redirect '/post'
     else
       puts "Password incorrect."
       flash[:notice] = "Incorrect username or password. Please try again."

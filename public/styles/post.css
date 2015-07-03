@@ -1,6 +1,18 @@
 .post {
+  top: 100px;
+  background-color: #B4BDCC;
+  padding: 20px;
+  float: left;
+  margin-left: 10px;
+}
+
+#past_10_posts {
+  position: relative;
+  top: 300px;
   background-color: #B4BDCC;
   padding: 100px;
   float: left;
   margin-left: 100px;
 }
+
+
