@@ -13,8 +13,8 @@ get "/" do
     @current_user = current_user
     erb :index
   else
-    redirect '/sign-in'
     puts "redirect to sign-in 1"
+    redirect '/sign-in'
   end
 end
 
@@ -56,8 +56,8 @@ post '/sign-up' do
 end
 
 get '/sign-in' do
-  erb :sign_in
   puts "erb to sign-in 1"
+  erb :sign_in
 end
 
 post '/sign-in' do
@@ -92,8 +92,8 @@ get '/edit-profile' do
   if current_user
     erb :edit_profile
   else
-    redirect '/sign-in'
     puts "redirect to sign-in 2"
+    redirect '/sign-in'
   end
 end
 
@@ -101,8 +101,8 @@ post '/edit-profile' do
   if current_user
     erb :edit_profile
   else
-    redirect '/sign-in'
     puts "redirect to sign-in 3"
+    redirect '/sign-in'
   end
 end
 
@@ -119,8 +119,8 @@ get '/view-profile' do
       erb :view_profile
     end
   else
-    redirect '/sign-in'
     puts "redirect to sign-in 4"
+    redirect '/sign-in'
   end
 end
 
@@ -128,8 +128,8 @@ post '/view-profile' do
   if current_user
     erb :view_profile
   else
-    redirect '/sign-in'
     puts "redirect to sign-in 5"
+    redirect '/sign-in'
   end
 end
 
@@ -137,8 +137,8 @@ get '/delete-profile' do
   if current_user
     erb :delete_profile
   else
-    redirect '/sign-in'
     puts "redirect to sign-in 6"
+    redirect '/sign-in'
   end
 end
 
@@ -146,8 +146,8 @@ post '/delete-profile' do
   if current_user
     erb :delete_profile
   else
-    redirect '/sign-in'
     puts "redirect to sign-in 7"
+    redirect '/sign-in'
   end
 end
 
