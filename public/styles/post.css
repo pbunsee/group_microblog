@@ -8,11 +8,19 @@
 
 #past_10_posts {
   position: relative;
-  top: 300px;
+  top: 200px;
   background-color: #B4BDCC;
-  padding: 100px;
+  padding: 20px;
   float: left;
-  margin-left: 100px;
+  margin-left: 20px;
+}
+
+#each_post {
+  position: relative;
+  background-color: #B4BDCC;
+  padding: 20px;
+  margin-left: 10px;
+  float: left;
 }
 
 

@@ -31,6 +31,10 @@ br {
   clear: left;
 }
 
+button {
+  float: right;
+}
+
 .flash_msg {
   position: relative;
   left: 20px;

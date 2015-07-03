@@ -1,13 +1,16 @@
 <form method="POST" action="/post" class="post">
    <label for="post"></label>
-   <textarea row="4" column="10" type="text" placeholder="Post" name="post"></textarea>
+   <textarea rows="4" cols="40" type="text" placeholder="Post" name="post"></textarea>
    <label for="submit"></label>
    <input type="submit"></input>
 </form>
  
 <div id="past_10_posts">
   <% Post.last(10).reverse.each do |post| %>
-    <%= post.body %><br>  
+    <div id="each_post">
+      <%= post.body %>  
+    </div>
+    <br>
   <% end %>
 </div>
 
