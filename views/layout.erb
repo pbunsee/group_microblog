@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title> <%= @title %> </title>
+  <meta charset="UTF-8">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="js/main.js"></script>
+
   <!-- CSS Reset -->
   <link rel="stylesheet" type="text/css" href="styles/cssreset.css">
   
@@ -13,58 +16,62 @@
 
   <!-- Google Fonts -->
   <link href='http://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
-</head>
 
-  <body>
-    <div id="hello">
-      <nav>
-          <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="#">Profile</a>
-              <ul>
-                <li><a href="/view-profile">View</a></li>
-                <li><a href="/edit-profile">Edit</a></li>
-                <li><a href="/delete-profile">Delete</a>
-                </li>
-              </ul>
-            </li>
-            <% if !current_user %>
-              <li><a href="/sign-in">Sign In</a></li>
-              <li><a href="/sign-up">Sign Up</a></li>
-            <% end %>
-            <% if current_user %>
-              <li><a href="/sign-out">Sign Out</a></li>
-            <% end %>
-          </ul> 
-      </nav>
-    </div> 
-  
-    <!-- <div id="in">
-      <div class="left_nav">
-        <li class="left"><a href="#">Trending</a></li>
-        <li class="left"><a href="#">Search</a></li>
-        <li class="left"><a href="#">Followers</a></li>
-        <li class="left"><a href="#">Following</a></li>
-        <li class="left"><a href="/post">Posts</a></li>
-        <li class="left"><a href="#">Favorites</a></li>
-      </div>
-    </div> -->
-      
-    <div id="page_content">
-      <p>
-        <%= yield %>
-      
-        <div class="flash_msg">
-          <% if flash[:notice] %>
-            <div class="notice" style="background:yellow">
-              <%= flash[:notice] %>
-            </div>
+  <title> <%= @title %> </title>
+</head>
+<body>
+  <div id="hello">
+    <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="#">Profile</a>
+            <ul>
+              <li><a href="/view-profile">View</a></li>
+              <li><a href="/edit-profile">Edit</a></li>
+              <li><a href="/delete-profile">Delete</a>
+              </li>
+            </ul>
+          </li>
+          <% if !current_user %>
+            <li><a href="/sign-in">Sign In</a></li>
+            <li><a href="/sign-up">Sign Up</a></li>
           <% end %>
-          <%= flash[:warning] if flash[:warning] %>
-        </div>
+          <% if current_user %>
+            <li><a href="/sign-out">Sign Out</a></li>
+          <% end %>
+        </ul> 
+    </nav>
+  </div> 
   
-      </p>
+  <!-- <div id="in">
+    <div class="left_nav">
+      <li class="left"><a href="#">Trending</a></li>
+      <li class="left"><a href="#">Search</a></li>
+      <li class="left"><a href="#">Followers</a></li>
+      <li class="left"><a href="#">Following</a></li>
+      <li class="left"><a href="/post">Posts</a></li>
+      <li class="left"><a href="#">Favorites</a></li>
     </div>
-  </body>
+  </div> -->
+      
+  <canvas id="site_canvas"></canvas>
+  <div id="page_content">
+    <p>
+      <%= yield %>
+    
+      <% if flash[:notice] %>
+        <div class="notice" style="background:#FFFFCC">
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
+      <% if flash[:warning] %>
+        <div class="warning" style="background:#FFDBB8">
+          <%= flash[:warning] %>
+        </div>
+      <% end %>
+  
+    </p>
+  </div>
+</body>
 </html>
 

@@ -18,7 +18,6 @@ get "/" do
 end
 
 get '/post' do
-  @post = {}
   if current_user
     user_id = session[:user_id]
     @post = User.find(user_id).posts
@@ -33,9 +32,9 @@ end
 post '/post' do
   if current_user
     @post = Post.create({body: params[:post], user_id: session[:user_id]})
-    # or could do @post = User.find(user_id).post.create(:post)
+    # or could do @post = User.find(user_id).post.create(params[:post])
     @stylesheet = 'styles/post.css'
-    erb :post
+    redirect '/post'
   else
     redirect '/sign-in'
   end
@@ -85,7 +84,7 @@ post '/sign-in' do
   @user = User.where(username: username).first
 
   if @user == 'undefined' || @user.nil?
-    flash[:notice] = "User not found. undefined, nil or empty for username: #{username} password: #{password}"
+    flash[:notice] = "User not found. undefined, nil or empty for username: #{username}"
     redirect '/sign-up'
   else
     if @user.password == password

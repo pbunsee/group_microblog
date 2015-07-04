@@ -26,7 +26,7 @@
 }
 
 .form_input {
-    z-index: 1;
+    z-index: 5;
     -moz-appearance: none;
     -webkit-appearance: none;
     padding: 0 8px;
@@ -41,7 +41,7 @@
     width: 409px;
     display: block;
     margin-bottom: 10px;
-    z-index: 1;
+    z-index: 5;
     position: relative;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;

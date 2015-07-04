@@ -7,12 +7,14 @@
   </form>
    
   <div id="past_10_posts">
-    <% if @post.size > 0 %>
-      <% @post.last(10).reverse.each do |post| %>
-        <div class="each_post">
-          <%= post.body %>  
-        </div>
-        <br>
+    <% if @post %>
+      <% if @post.count > 0 %>
+        <% @post.last(10).reverse.each do |post| %>
+          <div class="each_post">
+            <%= post.body %>  
+          </div>
+          <br>
+        <% end %>
       <% end %>
     <% end %>
   </div>
