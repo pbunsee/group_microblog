@@ -1,5 +1,5 @@
 
-#sign_up #view_profile #edit_profile {
+#view_profile {
   position: absolute;
   width: 580px;
   height: 480px;
@@ -15,7 +15,7 @@
   box-shadow: inset 0px 0px 50px rgba(0, 0, 0, 0.5);
 }
 
-.user_button {
+#view_profile user_button {
   width: auto;
 }
 

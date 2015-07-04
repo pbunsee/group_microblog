@@ -1,5 +1,5 @@
 
-#sign_up #view_profile #edit_profile {
+#sign_up, #view_profile, #edit_profile {
   position: absolute;
   width: 580px;
   height: 480px;

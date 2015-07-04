@@ -32,7 +32,7 @@ end
 post '/post' do
   if current_user
     @post = Post.create({body: params[:post], user_id: session[:user_id]})
-    # or could do @post = User.find(user_id).post.create(params[:post])
+    # or could do @post = User.find(user_id).post.create(params[:post])   test this
     @stylesheet = 'styles/post.css'
     redirect '/post'
   else
@@ -42,8 +42,8 @@ end
 
 get '/sign-out' do
   if current_user
-    user_id = current_user
-    @user = User.find(user_id)
+    user = current_user
+    @user = User.find(user.id)
     session[:user_id] = nil;   
     session.clear
     flash[:notice] = "Signed Out Successfully.  Come back soon!"
@@ -101,9 +101,10 @@ end
  
 get '/edit-profile' do
   if current_user
-    user_id = current_user
-    @user = User.find(user_id)
-    @profile = Profile.where(user_id: user_id).first
+    user = current_user
+    @user = User.find(user.id)
+    @profile = Profile.where(user_id: @user.id).first
+    @stylesheet = 'styles/forms.css'
     erb :edit_profile
   else
     redirect '/sign-in'
@@ -112,7 +113,18 @@ end
 
 post '/edit-profile' do
   if current_user
-    erb :edit_profile
+    user = current_user
+    @user = User.find(user.id)
+    @profile = Profile.where(user_id: @user.id).first
+    puts @profile
+    if !@profile.is_a?(Hash)
+      user_profile = params[:profile].merge!(user_id: @user.id)
+    end
+    if user_profile.is_a?(Hash)
+      puts "Is it a hash now #{user_profile.is_a?(Hash)}"
+    end
+    @profile.update(user_profile)
+    redirect '/edit-profile'
   else
     redirect '/sign-in'
   end
@@ -121,14 +133,15 @@ end
 get '/view-profile' do
   puts current_user
   if current_user
-    user_id = current_user
-    @user = User.find(user_id)
-    @profile = Profile.where(user_id: user_id).first
-    # or could use: @profile = User.find(user_id).profile
+    user = current_user
+    @user = User.find(user.id)
+    @profile = Profile.where(user_id: user.id).first
+    # or could use: @profile = User.find(user.id).profile
     if @user.nil? || @user == 'undefined'
       puts "cannot find the profile for #{user_id}"
       flash[:notice] = "Profile not found."
     else
+      @stylesheet = 'styles/forms.css'
       erb :view_profile
     end
   else
@@ -138,7 +151,8 @@ end
 
 post '/view-profile' do
   if current_user
-    erb :view_profile
+    @stylesheet = 'styles/forms.css'
+    redirect '/view-profile'
   else
     redirect '/sign-in'
   end
@@ -154,16 +168,17 @@ end
 
 post '/delete-profile' do
   if current_user
-    user_id = current_user
-    User.find(user_id).posts.destroy
-    User.find(user_id).profile.destroy
-    User.find(user_id).destroy
+    @user = current_user
+    User.find(@user.id).posts.destroy
+    User.find(@user.id).profile.destroy
+    User.find(@user.id).destroy
     session.clear
   else
     redirect '/sign-in'
   end
 end
 
+# return value of this method is an object which has all the user details from DB
 def current_user
   if session[:user_id]
     puts "session user_id #{session[:user_id]}"
