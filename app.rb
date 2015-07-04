@@ -54,7 +54,8 @@ get '/sign-out' do
 end
 
 get '/sign-up' do 
-    session[:user_id] = nil;   
+  session[:user_id] = nil;   
+  @stylesheet = 'styles/sign_up.css'
   erb :sign_up 
 end
 
@@ -89,7 +90,7 @@ post '/sign-in' do
   else
     if @user.password == password
       session[:user_id] = @user.id
-      flash[:notice] = "Welcome #{@user.username}!"
+      flash[:hello] = "Welcome #{@user.username}!"
       redirect '/post'
     else
       flash[:notice] = "Incorrect username or password. Please try again."
