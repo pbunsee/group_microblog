@@ -55,7 +55,7 @@ end
 
 get '/sign-up' do 
   session[:user_id] = nil;   
-  @stylesheet = 'styles/sign_up.css'
+  @stylesheet = 'styles/forms.css'
   erb :sign_up 
 end
 
@@ -65,7 +65,7 @@ post '/sign-up' do
     @user = User.create(params[:user])
     params[:profile].merge!(user_id: @user.id)
     Profile.create(params[:profile])
-    flash[:notice] = "Successfully signed up #{@user.username}!"
+    flash[:notice] = "Successfully signed up #{@user.username}! Login to continue."
     redirect '/sign-in'
   else
     flash[:notice] = "Please sign in"
@@ -85,12 +85,12 @@ post '/sign-in' do
   @user = User.where(username: username).first
 
   if @user == 'undefined' || @user.nil?
-    flash[:notice] = "User not found. undefined, nil or empty for username: #{username}"
+    flash[:notice] = "User record not found for username: #{username}"
     redirect '/sign-up'
   else
     if @user.password == password
       session[:user_id] = @user.id
-      flash[:hello] = "Welcome #{@user.username}!"
+      flash[:notice] = "Welcome #{@user.username}!"
       redirect '/post'
     else
       flash[:notice] = "Incorrect username or password. Please try again."
@@ -124,6 +124,7 @@ post '/edit-profile' do
       puts "Is it a hash now #{user_profile.is_a?(Hash)}"
     end
     @profile.update(user_profile)
+    flash[:notice] = "Profile updated for #{@user.username}!"
     redirect '/edit-profile'
   else
     redirect '/sign-in'
@@ -142,6 +143,7 @@ get '/view-profile' do
       flash[:notice] = "Profile not found."
     else
       @stylesheet = 'styles/forms.css'
+      flash[:notice] = "Profile for #{@user.username}!"
       erb :view_profile
     end
   else
@@ -160,6 +162,7 @@ end
 
 get '/delete-profile' do
   if current_user
+    @stylesheet = 'styles/forms.css'
     erb :delete_profile
   else
     redirect '/sign-in'
@@ -173,12 +176,15 @@ post '/delete-profile' do
     User.find(@user.id).profile.destroy
     User.find(@user.id).destroy
     session.clear
+    flash[:notice] = "Profile deleted."
+    redirect '/'
   else
     redirect '/sign-in'
   end
 end
 
-# return value of this method is an object which has all the user details from DB
+# return value of this method is an object which has all the user details from DB as attributes
+# i.e. a user object instance is returned
 def current_user
   if session[:user_id]
     puts "session user_id #{session[:user_id]}"
