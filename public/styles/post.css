@@ -5,14 +5,14 @@ body {
 
 
 .post {
-  top: 80px;
+  /*top: 80px;*/
   padding: 20px;
   width: 300px;
   border: none;
-  background-color: rgb(255, 255, 204);
-  -webkit-box-shadow: 13px 17px 20px 2px rgba(0,0,0,0.45);
+ /* background-color: rgb(255, 255, 204);*/
+/*  -webkit-box-shadow: 13px 17px 20px 2px rgba(0,0,0,0.45);
   -moz-box-shadow: 13px 17px 20px 2px rgba(0,0,0,0.45);
-  box-shadow: 13px 17px 20px 2px rgba(0,0,0,0.45);
+  box-shadow: 13px 17px 20px 2px rgba(0,0,0,0.45);*/
 }
 
 #past_10_posts {
@@ -31,29 +31,29 @@ body {
   width: 300px;
   height: 100px;
   word-wrap: break-word;
-  background-color: rgb(255, 255, 204);
-  -webkit-box-shadow: 13px 17px 20px 2px rgba(0,0,0,0.45);
+  /*background-color: rgb(255, 255, 204);*/
+/*  -webkit-box-shadow: 13px 17px 20px 2px rgba(0,0,0,0.45);
   -moz-box-shadow: 13px 17px 20px 2px rgba(0,0,0,0.45);
-  box-shadow: 13px 17px 20px 2px rgba(0,0,0,0.45);
+  box-shadow: 13px 17px 20px 2px rgba(0,0,0,0.45);*/
 }
 
 form textarea {
-  border: 1px solid;
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
+  /*border: 1px solid;*/
+  /*-webkit-border-radius: 2px;*/
+  /*-moz-border-radius: 2px;*/
   border-radius: 2px;
-  -webkit-box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(000,000,000,0.7) 0 0px 0px;
-  -moz-box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(000,000,000,0.7) 0 0px 0px;
-  box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(000,000,000,0.7) 0 0px 0px;
+  /*-webkit-box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(000,000,000,0.7) 0 0px 0px;*/
+  /*-moz-box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(000,000,000,0.7) 0 0px 0px;*/
+  /*box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(000,000,000,0.7) 0 0px 0px;*/
   padding:8px;
   margin-bottom:20px;
   width:280px;
 }
 
-textarea:focus {
+/*textarea:focus {
   background: #fff;
   color: #725129;
-}
+}*/
 
 
 
@@ -62,11 +62,11 @@ h2 {
   text-align: center;
   font-size: 40px;
 }
-hr {
+/*hr {
   width: 50%;
   background-color: black;
   color: black;
   border-style: solid;
   font-weight: 100;
-}
+}*/
 
