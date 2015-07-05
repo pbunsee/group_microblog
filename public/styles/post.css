@@ -1,3 +1,9 @@
+body {
+   background-color: white;
+     background-color: gainsboro;
+}
+
+
 .post {
   top: 80px;
   padding: 20px;
@@ -50,4 +56,17 @@ textarea:focus {
 }
 
 
+
+h2 {
+  color: black;
+  text-align: center;
+  font-size: 40px;
+}
+hr {
+  width: 50%;
+  background-color: black;
+  color: black;
+  border-style: solid;
+  font-weight: 100;
+}
 

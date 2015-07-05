@@ -40,6 +40,7 @@ post '/post' do
   end
 end
 
+<<<<<<< HEAD
 get '/sign-out' do
   if current_user
     user = current_user
@@ -51,6 +52,18 @@ get '/sign-out' do
   else
     redirect '/sign-in'
   end
+=======
+get '/post' do
+  pst = []
+  @stylesheet = 'styles/post.css'
+  pst << params[:post]
+  if pst.length > 150
+    puts "hey"
+    else 
+    puts post
+    end 
+  erb :post
+>>>>>>> changed styling
 end
 
 get '/sign-up' do 

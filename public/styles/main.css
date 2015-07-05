@@ -101,6 +101,12 @@ br {
 #hello {
   width: 100%;
 }
+.clear {
+  height: 60px;
+}
+.clear-left {
+  width: 100px;
+}
 
 /* Top Navigation Bar - Start */
 nav {
@@ -115,6 +121,7 @@ nav {
   z-index: 9999;
 
   /*padding-right: px;*/
+
 }
 
 nav ul ul {
