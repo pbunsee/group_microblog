@@ -13,6 +13,7 @@
   /*rgba(0, 0, 0, 0.32);*/
   /*z-index: 9999;*/
   text-align: center;
+  border: 20px solid gray;
   /*line-height: 279px;*/
   /*box-shadow: inset 0px 0px 50px rgba(0, 0, 0, 0.5);*/
 }
