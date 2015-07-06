@@ -11,20 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20150701200313) do
-
-  create_table "users", force: :cascade do |t|
-    t.string  "username"
-    t.string  "email"
-    t.string  "password"
-    t.integer "phone_number"
-=======
-ActiveRecord::Schema.define(version: 20150702195801) do
+ActiveRecord::Schema.define(version: 20150705182509) do
 
   create_table "posts", force: :cascade do |t|
-    t.integer "user_id"
-    t.string  "body"
+    t.integer  "user_id"
+    t.string   "body"
+    t.datetime "created_at"
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -38,13 +30,13 @@ ActiveRecord::Schema.define(version: 20150702195801) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "username"
-    t.string "email"
-    t.string "password"
-    t.string "firstname"
-    t.string "lastname"
-    t.string "phone"
->>>>>>> feature_set3
+    t.string  "username"
+    t.string  "email"
+    t.string  "password"
+    t.string  "firstname"
+    t.string  "lastname"
+    t.string  "phone"
+    t.integer "phone_number"
   end
 
 end

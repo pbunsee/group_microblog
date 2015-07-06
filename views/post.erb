@@ -12,7 +12,16 @@
       <% if @post.count > 0 %>
         <% @post.last(10).reverse.each do |post| %>
           <div class="each_post">
-            <%= post.body %>  
+             <%= post.body %>
+              </br>
+              </br>
+              </br>
+              </br>
+            <%= post.created_at %>
+            <p>posted by</p>
+            <%= post.user.username %> 
+           
+
           </div>
           <br>
         <% end %>

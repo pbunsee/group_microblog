@@ -45,7 +45,7 @@
   </div> 
   
       
-  <canvas id="site_canvas"></canvas>
+  <!-- <canvas id="site_canvas"></canvas> -->
   <div id="page_content">
 
     <div id="in">
@@ -62,12 +62,12 @@
 
     <p>
       <% if flash[:notice] %>
-        <div class="flash_msg" style="background:#FFFFCC">
+        <div class="flash_msg">
           <%= flash[:notice] %>
         </div>
       <% end %>
       <% if flash[:warning] %>
-        <div class="flash_msg" style="background:#FFDBB8">
+        <div class="flash_msg">
           <%= flash[:warning] %>
         </div>
       <% end %>

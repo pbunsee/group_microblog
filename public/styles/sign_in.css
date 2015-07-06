@@ -1,19 +1,20 @@
 
 #sign_in {
-  position: absolute;
+  position: relative;
   width: 410px;
   height: 282px;
-  top: 40%;
-  left: 50%;
-  margin-top: -174px;
-  margin-left: -240px;
-  text-shadow: 0px 0px rgba(255, 255, 255, 0.57);
-  background-color: rgb(191, 233, 255);
+  background-color: #B4BDCC;
+  top: 100px;
+  border-radius: 10px;
+  /*margin-top: -174px;*/
+  /*margin-left: -240px;*/
+/*  text-shadow: 0px 0px rgba(255, 255, 255, 0.57);
+  background-color: rgb(191, 233, 255);*/
   /*rgba(0, 0, 0, 0.32);*/
-  z-index: 9999;
+  /*z-index: 9999;*/
   text-align: center;
-  line-height: 279px;
-  box-shadow: inset 0px 0px 50px rgba(0, 0, 0, 0.5);
+  /*line-height: 279px;*/
+  /*box-shadow: inset 0px 0px 50px rgba(0, 0, 0, 0.5);*/
 }
 
 #sign_in form_input {

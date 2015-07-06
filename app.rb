@@ -14,10 +14,13 @@ get "/" do
     redirect '/post'
   else
     redirect '/sign-in'
+    puts "just checking 11"
   end
 end
 
 get '/post' do
+  myuser = current_user
+  puts "****************************** #{myuser}"
   if current_user
     user_id = session[:user_id]
     @post = User.find(user_id).posts
@@ -25,7 +28,8 @@ get '/post' do
     @stylesheet = 'styles/post.css'
     erb :post
   else
-    redirect '/sign-in'
+    redirect '/home'
+    puts "just checking 10"
   end
 end
 
@@ -37,6 +41,7 @@ post '/post' do
     redirect '/post'
   else
     redirect '/sign-in'
+    puts "just checking 9"
   end
 end
 
@@ -50,6 +55,7 @@ get '/sign-out' do
     redirect '/'
   else
     redirect '/sign-in'
+    puts "just checking 8"
   end
 end
 
@@ -78,7 +84,9 @@ post '/sign-up' do
     params[:profile].merge!(user_id: @user.id)
     Profile.create(params[:profile])
     flash[:notice] = "Successfully signed up #{@user.username}! Login to continue."
-    redirect '/sign-in'
+    # redirect '/sign-in'
+    puts "***************(******** AFTER POST ****************************"
+      redirect '/post'
   else
     flash[:notice] = "Please sign in"
     redirect '/'
@@ -107,6 +115,7 @@ post '/sign-in' do
     else
       flash[:notice] = "Incorrect username or password. Please try again."
       redirect '/sign-in'
+      puts "just checking 6"
     end
   end
 end
@@ -120,6 +129,7 @@ get '/edit-profile' do
     erb :edit_profile
   else
     redirect '/sign-in'
+    puts "just checking 5"
   end
 end
 
@@ -140,6 +150,7 @@ post '/edit-profile' do
     redirect '/edit-profile'
   else
     redirect '/sign-in'
+    puts "just checking 4"
   end
 end
 
@@ -160,6 +171,7 @@ get '/view-profile' do
     end
   else
     redirect '/sign-in'
+    puts "just checking 12 "
   end
 end
 
@@ -169,6 +181,7 @@ post '/view-profile' do
     redirect '/view-profile'
   else
     redirect '/sign-in'
+    puts "just checking 3"
   end
 end
 
@@ -178,6 +191,7 @@ get '/delete-profile' do
     erb :delete_profile
   else
     redirect '/sign-in'
+    puts " just checking 2"
   end
 end
 
@@ -192,6 +206,7 @@ post '/delete-profile' do
     redirect '/'
   else
     redirect '/sign-in'
+    puts "just checking 1"
   end
 end
 

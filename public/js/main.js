@@ -1,6 +1,6 @@
-function doLayout() {
-  var my_canvas = document.getElementById("site_canvas");
-  canvas_context = my_canvas.getContext("2d");
+// function doLayout() {
+//   var my_canvas = document.getElementById("site_canvas");
+//   canvas_context = my_canvas.getContext("2d");
 
 //   canvas_context.globalAlpha = 0.2;
 //   var pic = new Image();
@@ -11,3 +11,6 @@ function doLayout() {
 // }
 // window.addEventListener("load", doLayout, false);
 
+$(function(){
+    $(".flash_msg").fadeOut(4000);
+});
